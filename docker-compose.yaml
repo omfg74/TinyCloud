@@ -1,0 +1,21 @@
+version: '3'
+services:
+  postgres:
+    image: library/postgres:14
+    restart: always
+    command:
+      - '-c'
+      - 'shared_buffers=256MB'
+      - '-c'
+      - 'max_connections=200'
+    environment:
+      POSTGRES_DB: tinycloud
+      POSTGRES_USER: tinycloud
+      POSTGRES_PASSWORD: tinycloud
+    volumes:
+      - postgresql_data:/var/lib/postgresql/projecth
+    ports:
+      - 5439:5432
+
+volumes:
+  postgresql_data:

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="2021-11-18-file.xml" author="a.podshivalov">
+        <sql>
+            create table file
+            (
+            id bigserial not null
+            constraint file_pk
+            primary key,
+            file_name text not null,
+            file_extension varchar(50) not null,
+            file_content_type varchar(50),
+            file_size bigint
+            );
+
+            comment on table file is 'Информация о хранимых файлах';
+
+            comment on column file.file_name is 'имя файла
+            ';
+
+            comment on column file.file_size is 'размер файла в байтах';
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS "file";
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

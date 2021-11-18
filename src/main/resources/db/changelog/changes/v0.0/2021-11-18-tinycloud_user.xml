@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="2021-11-18-tinycloud_user.xml" author="a.podshivalov">
+        <sql>
+            create table tinycloud_user
+            (
+            id bigserial not null
+            constraint tinycloud_user_pk
+            primary key,
+            user_name text not null,
+            password text not null
+            );
+
+            create unique index tinycloud_user_user_name_uindex
+            on tinycloud_user (user_name);
+
+        </sql>
+        <rollback>
+            <sql>
+                DROP TABLE IF EXISTS "tinycloud_user";
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>
