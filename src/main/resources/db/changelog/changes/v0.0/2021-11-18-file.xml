@@ -13,6 +13,7 @@
             constraint file_pk
             primary key,
             file_name text not null,
+            file_uuid_name text not null,
             file_extension varchar(50) not null,
             file_content_type varchar(50),
             file_size bigint
