@@ -16,7 +16,9 @@
             file_uuid_name text not null,
             file_extension varchar(50) not null,
             file_content_type varchar(50),
-            file_size bigint
+            file_size bigint,
+            user_id bigint not null,
+            folder_id bigint
             );
 
             comment on table file is 'Информация о хранимых файлах';

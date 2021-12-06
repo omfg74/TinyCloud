@@ -31,8 +31,10 @@ public class FileEntity {
     private String fileSize;
 
     @OneToOne
+    @JoinColumn(name = "folder_id", referencedColumnName = "id")
     private Folder folder;
 
     @ManyToOne(targetEntity = User.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="2021-12-04-items_in_folder.xml" author="a.podshivalov">
+        <sql>
+            drop view if exists items_in_folder;
+            create view items_in_folder
+            as
+            select f.id as folder_id,
+            tu.id as user_id,
+            f2.id as  file_id,
+            f.path as path,
+            f.parent_folder_id as parent_folder_id
+            from folder f
+            join file f2 on f.id = f2.folder_id
+            join tinycloud_user tu on f.user_id = tu.id
+        </sql>
+        <rollback>
+            <sql>
+                DROP VIEW IF EXISTS "items_in_folder";
+            </sql>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -21,6 +21,10 @@ public class Folder {
     @Column(name = "path")
     private String path;
 
-    @ManyToOne(targetEntity = User.class)
+    @Column(name="parent_folder_id")
+    private String parentFolder_id;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 }

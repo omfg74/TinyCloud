@@ -11,5 +11,7 @@
     <include file="2021-11-18-roles_to_users.xml" relativeToChangelogFile="true"/>
     <include file="2021-11-18-files_to_users.xml" relativeToChangelogFile="true"/>
     <include file="2021-11-18-folder.xml" relativeToChangelogFile="true"/>
+    <include file="2021-12-04-items_in_folder.xml" relativeToChangelogFile="true"/>
+    <include file="test_data/2021-12-04-test_data.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

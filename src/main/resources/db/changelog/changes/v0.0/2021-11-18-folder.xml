@@ -12,7 +12,9 @@
             id bigserial not null
             constraint folder_pk
             primary key,
-            path text
+            path text,
+            parent_folder_id bigint,
+            user_id bigint not null
             );
         </sql>
         <rollback>

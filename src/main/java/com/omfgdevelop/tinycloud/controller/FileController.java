@@ -40,7 +40,7 @@ public class FileController {
         }
 
         // return success response
-        attributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
+        redirectAttributes.addFlashAttribute("message", "You successfully uploaded " + fileName + '!');
 
         return "redirect:/";
     }

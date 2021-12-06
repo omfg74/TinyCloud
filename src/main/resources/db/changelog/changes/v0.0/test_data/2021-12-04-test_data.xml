@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
+
+    <changeSet id="2021-12-04-test_data.xml" author="a.podshivalov">
+        <sql>
+            INSERT INTO public.file (id, file_name, file_uuid_name, file_extension, file_content_type, file_size,
+            user_id, folder_id) VALUES (1, 'file1', 'uuid1', 'doc', 'doc', 1, 1, 1);
+            INSERT INTO public.file (id, file_name, file_uuid_name, file_extension, file_content_type, file_size,
+            user_id, folder_id) VALUES (2, 'file2', 'uuid2', 'doc', 'doc', 1, 1, 1);
+            INSERT INTO public.file (id, file_name, file_uuid_name, file_extension, file_content_type, file_size,
+            user_id, folder_id) VALUES (3, 'file3', 'uuid3', 'doc', 'doc', 1, 2, 3);
+            INSERT INTO public.file (id, file_name, file_uuid_name, file_extension, file_content_type, file_size,
+            user_id, folder_id) VALUES (4, 'file4', 'uuid4', 'doc', 'doc', 2, 1, 2);
+            INSERT INTO public.folder (id, path, parent_folder_id, user_id) VALUES (1, '/', null, 1);
+            INSERT INTO public.folder (id, path, parent_folder_id, user_id) VALUES (2, '/path', 1, 1);
+            INSERT INTO public.folder (id, path, parent_folder_id, user_id) VALUES (3, '/user2path', null, 2);
+            INSERT INTO public.folder (id, path, parent_folder_id, user_id) VALUES (4, '/user2/deeppath', 3, 2);
+            INSERT INTO public.tinycloud_user (id, user_name, password) VALUES (1, 'user1', '123');
+            INSERT INTO public.tinycloud_user (id, user_name, password) VALUES (2, 'user2', '123');
+        </sql>
+    </changeSet>
+
+</databaseChangeLog>
